@@ -1,0 +1,43 @@
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+@media (max-width:768px)
+{
+    
+.fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+}
+
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+}
+
+.user-pad {
+    border-right: 2px solid #A9A9A9;
+    padding: 20px 10px;
+}
+.overview h3 {
+    font-size: 15px;
+    margin-top: 15px;
+    margin: 10px 0 0 0;
+}
+.overview h4 {
+    font-weight: bold!important;
+    font-size: 20px;
+    margin-top: 0;
+}

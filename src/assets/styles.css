@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+.profile-nav-image{
+    position: relative;
+    top: -5px;
+    float: left;
+    left: -5px;
+}
+
+.img-circle{
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-right: 2px;
+}
+
+.prof-img-circle{
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.pointer {
+    cursor: pointer;
+}

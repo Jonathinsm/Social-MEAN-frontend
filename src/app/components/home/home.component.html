@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-md-8">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="jumbotron">
+      <h1 class="display-4">Welcome to Social-MEAN!</h1>
+      <p class="lead">This is just an example of a mini social network built in a MEAN stack usin an api architecture. You can create an profile and publish any topic of whatever you want. You can follow to other people for view their publications or send him messages. Enjoy It.</p>
+      <hr class="my-4">
+      <div class="alert alert-warning">
+        <p>!Warning¡ The information registered in this page is from your responsibility. We don't make responsibles for the loss or divulgation of it.</p>
+      </div>
+      <div class="initbut">
+          <a class="btn btn-info btn-lg" [routerLink]="['/timeline']" role="button">Timeline</a>
+          <a class="btn btn-info btn-lg" [routerLink]="['/gente']" role="button">People</a>
+      </div>
+    </div>  
+</div>
+<router-outlet></router-outlet>

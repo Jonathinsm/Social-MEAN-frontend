@@ -1,0 +1,13 @@
+#pagelogo {
+	display: inline;
+	position: relative;
+	font: 30px Helvetica, Sans-Serif;
+	letter-spacing: -2px;
+	color: rgba(0,0,255,0.5);  
+}
+
+#pagelogo:after {
+	content: "Social-MEAN";
+	position: absolute; left: 2px; top: 5px;
+	color: rgba(255,0,0,0.5);   
+}

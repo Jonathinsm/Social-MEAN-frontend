@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+          <div class="">
+              <h1>{{title}}</h1>
+          </div>
+          <div class="fb-profile" *ngIf="user">
+              <img align="left" class="fb-image-lg" src="assets/profilebanner.jpeg"/>
+              <img align="left" class="fb-image-profile thumbnail" src="{{ url + 'get-image-user/' + user.image }}" alt="{{user.nick}}" *ngIf="user.image">
+              <img align="left" class="fb-image-profile thumbnail" src="assets/user.jpg" alt="{{user.nick}}" *ngIf="!user.image">
+              <div class="fb-profile-text">
+                  <h1>{{user.name + ' ' + user.surname}}</h1>
+                  <p>{{user.phrase}}.</p>
+              </div>
+              <div class="row" *ngIf="user._id != identity._id">
+                <div class="col-sm" *ngIf="followed">
+                  <span class="badge badge-success">Follower</span>
+                </div>
+                <div class="col-sm" *ngIf="!followed">
+                    <span class="badge badge-secondary">Not follower</span>
+                </div>
+                <div class="col-sm text-right">
+                    <button class="btn btn-success" *ngIf="!following" (click)="followUser(user._id)">Follow</button>
+                    <button class="btn bnt-primary" *ngIf="following"
+                    (click)="unfollowUser(user._id)"
+                    (mouseenter)="mouseEnter(user._id)"
+                    (mouseleave)="mouseLeave()"
+                    [class.btn-danger]="user._id == followUserOver"
+                    >
+                    <span *ngIf="user._id == followUserOver else following">
+                        Stop Follow
+                    </span>
+                    <ng-template #following>
+                        Following
+                    </ng-template>
+                    </button>
+                </div>
+            </div>
+              <div class="row overview" *ngIf="stats">
+                    <div class="col-md-4 user-pad text-center">
+                        <h3>FOLLOWING</h3>
+                        <h4><a [routerLink]="['/siguiendo', user._id,1]">{{stats.following}}</a></h4>
+                    </div>
+                    <div class="col-md-4 user-pad text-center">
+                        <h3>FOLLOWERS</h3>
+                        <h4><a [routerLink]="['/seguidores', user._id,1]">{{stats.followed}}</a></h4>
+                    </div>
+                    <div class="col-md-4 user-pad text-center">
+                        <h3>PUBLICATIONS</h3>
+                        <h4>{{stats.publications}}</h4>
+                    </div>
+                </div>
+            
+          </div>
+          <div *ngIf="user">
+            <app-publications [user]="user._id"></app-publications>
+          </div>
+      </div>
+      <div class="col-sm-4">
+        <app-sidebar></app-sidebar>
+      </div>
+    </div>
+  </div>

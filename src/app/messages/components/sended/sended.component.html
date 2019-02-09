@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" *ngIf="messages">
+        <h1>{{title}}</h1>
+        <div *ngFor="let message of messages">
+          <div class="row">
+              <div class="card col-sm-2">
+                  <img class="card-img-top" src="{{ url + 'get-image-user/' + message.emitter.image }}"  *ngIf="message.emitter.image">
+                  <img class="card-img-top" src="assets/user.jpg" *ngIf="!message.emitter.image">
+                </div>
+                <div class="card col-sm-8" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><a [routerLink]="['/perfil', message.emitter._id]">{{message.emitter.name + ' ' + message.emitter.surname}}</a></h5>
+                      <p>{{message.emitter.nick}}</p>
+                      <p class="card-text">{{message.text}}</p>
+                      <span class="text-muted">{{ (message.created_at | amFromUnix) | amLocale:'es' | amTimeAgo}}</span>
+                      <span class="text-muted">Enviado a {{message.receiver.name}}</span>
+                    </div>
+                  </div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+  <ul class="pagination">
+      <li class="page-item" *ngIf="page > 1">
+        <a class="page-link" [routerLink]="['/mensajes/enviados', prev_page]" >Previous</a>
+      </li>
+      <li class="page-item" *ngIf="pages != page">
+        <a class="page-link" [routerLink]="['/mensajes/enviados', next_page]">Next</a>
+      </li>
+  </ul>
+</div>

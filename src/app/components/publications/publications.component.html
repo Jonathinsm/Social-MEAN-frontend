@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+<div *ngFor="let publication of publications">
+  <div class="row">
+    <div class="card col-sm-12">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-1">
+            <img class="card-img-top prof-img-circle" src="{{ url + 'get-image-user/' + publication.user.image }}" alt="{{publication.user.nick}}" *ngIf="publication.user.image">
+            <img class="card-img-top prof-img-circle" src="assets/user.jpg" alt="{{publication.user.nick}}" *ngIf="!publication.user.image">
+          </div>
+          <div>
+            <span>{{publication.user.name + ' ' + publication.user.surname}} &nbsp;|&nbsp; </span>
+            <span class="text-muted">{{ (publication.created_at | amFromUnix) | amLocale:'en' | amTimeAgo}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>{{publication.text}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-4 text-center" *ngIf="publications &&  publications.length">
+  <button class="btn btn-primary" (click)="viewMore()" *ngIf="!noMore">Show more</button>
+</div>

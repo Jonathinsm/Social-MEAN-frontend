@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-3">
+          <h3>{{title}}</h3>
+          <div class="sidebar-admin">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'enviar'" [routerLinkActive]="['active']">Lets Send</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'recibidos'"  [routerLinkActive]="['active']">Inbox</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'enviados'"  [routerLinkActive]="['active']">Sended</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'/home'">Information</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <router-outlet></router-outlet>
+        </div>
+  </div>
+</div>
